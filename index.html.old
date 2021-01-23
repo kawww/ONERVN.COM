@@ -1,0 +1,150 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <title>ONE RVN ONE WORLD</title>
+        <meta name="description" content="">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="cleartype" content="on">
+
+        <!-- iPad and iPad mini (with @2× display) iOS ≥ 8 -->
+        <link rel="apple-touch-icon-precomposed" sizes="180x180" href="/img/touch/apple-touch-icon-180x180-precomposed.png">
+        <!-- iPad 3+ (with @2× display) iOS ≥ 7 -->
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/img/touch/apple-touch-icon-152x152-precomposed.png">
+        <!-- iPad (with @2× display) iOS ≤ 6 -->
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/touch/apple-touch-icon-144x144-precomposed.png">
+        <!-- iPhone (with @2× and @3 display) iOS ≥ 7 -->
+        <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/img/touch/apple-touch-icon-120x120-precomposed.png">
+        <!-- iPhone (with @2× display) iOS ≤ 6 -->
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/img/touch/apple-touch-icon-114x114-precomposed.png">
+        <!-- iPad mini and the first- and second-generation iPad (@1× display) on iOS ≥ 7 -->
+        <link rel="apple-touch-icon-precomposed" sizes="76x76" href="/img/touch/apple-touch-icon-76x76-precomposed.png">
+        <!-- iPad mini and the first- and second-generation iPad (@1× display) on iOS ≤ 6 -->
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/img/touch/apple-touch-icon-72x72-precomposed.png">
+        <!-- Android Stock Browser and non-Retina iPhone and iPod Touch -->
+        <link rel="apple-touch-icon-precomposed" href="/img/touch/apple-touch-icon-57x57-precomposed.png">
+        <!-- Fallback for everything else -->
+        <link rel="shortcut icon" href="/img/touch/apple-touch-icon.png">
+
+        <!--
+            Chrome 31+ has home screen icon 192×192 (the recommended size for multiple resolutions).
+            If it’s not defined on that size it will take 128×128.
+        -->
+        <link rel="icon" sizes="192x192" href="/img/touch/touch-icon-192x192.png">
+        <link rel="icon" sizes="128x128" href="/img/touch/touch-icon-128x128.png">
+
+        <!-- Tile icon for Win8 (144x144 + tile color) -->
+        <meta name="msapplication-TileImage" content="/img/touch/apple-touch-icon-144x144-precomposed.png">
+        <meta name="msapplication-TileColor" content="#222222">
+
+    
+
+        <link rel="stylesheet" href="/css/normalize.css">
+        <link rel="stylesheet" href="/css/main.css">
+        <script src="/js/vendor/modernizr-2.8.3.min.js"></script>
+
+		<style>
+div,ul,li{margin: 0;padding: 0}
+.notice {
+ width: 80px;
+ height: 35px;
+ padding: 0 30px;
+ background-color: #b3effe;
+ overflow: hidden;
+}
+.notice ul li {
+ list-style: none;
+ line-height: 35px;
+
+ display: block;
+ white-space: nowrap;
+ text-overflow: ellipsis;
+ overflow: hidden;
+}
+
+</style>
+
+<script>
+
+function noticeUp(obj,top,time) {
+ $(obj).animate({
+ marginTop: top
+ }, time, function () {
+ $(this).css({marginTop:"0"}).find(":first").appendTo(this);
+ })
+}
+
+ setInterval("noticeUp('.notice ul','-35px',500)", 2000);
+</script>
+    </head>
+    <body>
+
+        <!-- Add your site or application content here -->
+
+        <script src="/js/vendor/jquery-2.1.3.min.js"></script>
+        <script src="/js/helper.js"></script>
+        <script src="/js/main.js"></script>
+
+		<center><H1>ONE RVN ONE WORLD</H1>
+
+		onervn.com<br>
+		
+		<img src=/img/chead.jpg><div class="notice">
+ <ul>
+ <li><a href=/search?asset=HELLO>Hello</a></li>
+ <li><a href=/search/?asset=%E4%BD%A0%E5%A5%BD>你好</a></li>
+ <li><a href=/search?asset=안녕하세>안녕하세요</a></li>
+ <li><a href=/search?asset=こんにち>こんにちは</a></li>
+ <li><a href=/search?asset=Прив>Привет</a></li>
+ <li><a href=/search?asset=สวัส>สวัสดี</a></li>
+ <li><a href=/search?asset=हैलो>हैलो</a></li>
+ </ul>
+</div>
+
+<br><a href=/search/?asset=%E2%9D%A4 style="color: #000000;text-decoration:none;">❤</a><br>
+
+		<form action="search/" method="post">
+		<h3>
+		Asset: <input type="text" name="asset" style="width:100px;" maxlength="31">
+		<input type="submit" value="KAW">
+		</h3>
+		</form><br>
+
+		<h4>
+		<a href="http://onervn.com/search?asset=GETTING_STARTED">GETTING_STARTED</a>
+		<br><br>
+		<!--Event: <a href="/moon">MOONCAKE</a> -->
+		<br><br>
+		<a href="/qr" style="color: #000000;text-decoration:none;"><b>asset qr</b></a>&nbsp;|&nbsp;
+
+	
+
+		<a href="/rasdaq" style="color: #000000;text-decoration:none;">rasdaq</a>&nbsp;|&nbsp;
+
+
+		<a href="https://github.com/kawww/onervn.com" target=_blank style="color: <br><br>#000000;text-decoration:none;">github</a>
+		
+		<br><br>
+			<a href="https://ravencoin.asset-explorer.net/" target=_blank style="color: #000000;text-decoration:none;">explorer</a>&nbsp;|&nbsp;
+
+				<a href="http://ravenx.net/market" target=_blank style="color: #000000;text-decoration:none;">ravenx</a>&nbsp;|&nbsp;
+
+		<a href="https://faucet.ravenland.org" target=_blank style="color: #000000;text-decoration:none;">faucet</a>&nbsp;
+		
+		<br><br>
+		<a href="/word" style="color: #000000;text-decoration:none;">universe</a>&nbsp;&nbsp|&nbsp;&nbsp;<a href="/bonus" style="text-decoration:none;"><font color=\"#ff0000\">b</font><font color=\"#ff7f00\">o</font><font color=\"#ff7f00\">n</font><font color=\"#00ff00\">u</font><font color=\"#00ff00\">s</font></a>&nbsp;&nbsp;|&nbsp;&nbsp<a href="/divided" style="color: #000000;text-decoration:none;">divided</a>
+				<br><br>
+		&nbsp;&nbsp;<a href="/os" target=_blank style="color: #000000;text-decoration:none;">os</a>&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a href="/rkey" style="color: #000000;text-decoration:none;"><b>R key</b></a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/os" target=_blank style="color: #000000;text-decoration:none;"></a>&nbsp;&nbsp;&nbsp;&nbsp;
+		<br><br>
+		&nbsp;&nbsp;<a href="http://onervn.com/search?asset=ONERVN" style="color: #000000;text-decoration:none;"><b>sitemap</b></a> 
+
+		</h4>
+
+
+
+		</center>
+
+	</body>
+</html>
