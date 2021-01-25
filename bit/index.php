@@ -38,9 +38,15 @@ session_start();
 
 $blockbegin=1600000;
 
+//$blockbegin=1597035;
+
 $dogenum=7200;
 
 $carda="KEVA.APP/CYBER/BITDOGE";
+
+$carda1="KEVA.APP/CYBER/BITDOGE.RAVEN";
+
+$carda2="KEVA.APP/CYBER/BITDOGE.KEVA";
 
 $cardb="KEVA.APP/CYBER/TIA";
 
@@ -142,6 +148,11 @@ $gasset=$rpc->listassetbalancesbyaddress($_SESSION['baddress']);
 
 $gcap=$gasset[$carda];
 
+if(!$gcap){$gcap=$gasset[$carda1];}
+
+
+if(!$gcap){$gcap=$gasset[$carda2];}
+
 
 
 $cardan=str_replace("KEVA.APP/CYBER/","",$carda);
@@ -163,10 +174,10 @@ $cardbn=str_replace("KEVA.APP/CYBER/","",$cardb);
 
 	if(!$gcap){$gcap=0;}
 
-	else{echo "<img src=doge.png><br><br><br><br>You already have bitdoge."; echo "<form action=\"/bit/\" method=\"post\"><input type=\"hidden\" name=\"change\" value=\"logout\"><br>&nbsp;&nbsp;<input type=\"submit\" value=\"logout\"></form><br>";$_SESSION['onedoge']="";exit;}
+	else{echo "<img src=bitdogewho.png><br><br><br><br>You already have bitdoge."; echo "<form action=\"/bit/\" method=\"post\"><input type=\"hidden\" name=\"change\" value=\"logout\"><br>&nbsp;&nbsp;<input type=\"submit\" value=\"logout\"></form><br>";$_SESSION['onedoge']="";exit;}
 
 	if($_SESSION['onedoge']!="")
-	{echo "<img src=doge.png><br><br><br><br>You already have bitdoge."; echo "<form action=\"/bit/\" method=\"post\"><input type=\"hidden\" name=\"change\" value=\"logout\"><br>&nbsp;&nbsp;<input type=\"submit\" value=\"logout\"></form><br>";$_SESSION['onedoge']="";exit;}
+	{echo "<img src=bitdogewho.png><br><br><br><br>You already have bitdoge."; echo "<form action=\"/bit/\" method=\"post\"><input type=\"hidden\" name=\"change\" value=\"logout\"><br>&nbsp;&nbsp;<input type=\"submit\" value=\"logout\"></form><br>";$_SESSION['onedoge']="";exit;}
 
 	echo "<br><br><input type=button value=\"catch a doge\" onclick=\"location.reload()\"> <br><br>".$_SESSION['getcap']."";
 
@@ -204,13 +215,19 @@ if($_SESSION['baddress']<>""){
 		$roll=rand(1,5);
 
 		if($roll==1){
-	
 		
-		$bonusr=$rpc->transfer($carda,1,$_SESSION['baddress']);
+		$rolln=rand(1,10);
+		
+		if($rolln==1){$bonusr=$rpc->transfer($carda,1,$_SESSION['baddress']);}else{
+
+		if($rolln>5 or $rolln==5){$bonusr=$rpc->transfer($carda1,1,$_SESSION['baddress']);}
+
+		if($rolln<5){$bonusr=$rpc->transfer($carda2,1,$_SESSION['baddress']);}}
+
 		
 		$_SESSION['onedoge']=1;
 		
-		$_SESSION['getcap']="<br><font color=red>Get one bit doge!<br><br><img src=doge.png><br></font>";
+		$_SESSION['getcap']="<br><font color=red>Get one bit doge!<br><br><img src=bitdogewho.png><br></font>";
 		
 			if($capb[$cardb]>$cardbleft){
 
