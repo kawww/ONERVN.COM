@@ -48,9 +48,23 @@ $carda1="KEVA.APP/CYBER/BITDOGE.RAVEN";
 
 $carda2="KEVA.APP/CYBER/BITDOGE.KEVA";
 
+//b
+
 $cardb="KEVA.APP/CYBER/TIA";
 
 $cardbnum=120;
+
+//c
+
+$cardc="KEVA.APP/CYBER/WSB";
+
+$cardcnum=10000;
+
+//d
+
+$cardd="KEVA.APP/CYBER/DOGECEO";
+
+$carddnum=10000;
 
 //check server
 
@@ -144,6 +158,10 @@ $cap=$rpc->listmyassets($carda);
 
 $capb=$rpc->listmyassets($cardb);
 
+$capc=$rpc->listmyassets($cardc);
+
+$capd=$rpc->listmyassets($cardd);
+
 $gasset=$rpc->listassetbalancesbyaddress($_SESSION['baddress']);
 
 $gcap=$gasset[$carda];
@@ -158,6 +176,10 @@ if(!$gcap){$gcap=$gasset[$carda2];}
 $cardan=str_replace("KEVA.APP/CYBER/","",$carda);
 
 $cardbn=str_replace("KEVA.APP/CYBER/","",$cardb);
+
+$cardcn=str_replace("KEVA.APP/CYBER/","",$cardc);
+
+$carddn=str_replace("KEVA.APP/CYBER/","",$cardd);
 
 
 
@@ -206,13 +228,19 @@ if($_SESSION['baddress']<>""){
 		$cardbleft=$cardbnum-intval(intval($blockchange/60));
 		
 
-	
+//wsb	
+
+		$cardcleft=$cardcnum-intval(intval($blockchange/20));
+
+//dogeceo
+
+		$carddleft=$carddnum-intval(intval($blockchange/30));
 
 		if($cap[$carda]>$dogeleft)
 
 			{
 		
-		$roll=rand(1,5);
+		$roll=rand(1,7);
 
 		if($roll==1){
 		
@@ -228,6 +256,8 @@ if($_SESSION['baddress']<>""){
 		$_SESSION['onedoge']=1;
 		
 		$_SESSION['getcap']="<br><font color=red>Get one bit doge!<br><br><img src=bitdogewho.png><br></font>";
+
+		//b
 		
 			if($capb[$cardb]>$cardbleft){
 
@@ -237,7 +267,24 @@ if($_SESSION['baddress']<>""){
 					$_SESSION['getcap']=$_SESSION['getcap']."<br><font color=blue>You have ".$cardbn."!<br><br></font>";}
 
 					
+		//c
 
+				if($capc[$cardc]>$cardcleft){
+
+					$bonusc=$rpc->transfer($cardc,1,$_SESSION['baddress']);
+					
+					
+					$_SESSION['getcap']=$_SESSION['getcap']."<br><font color=blue>You have ".$cardcn."!<br><br></font>";}
+
+							
+		//d
+
+				if($capd[$cardd]>$carddleft){
+
+					$bonusd=$rpc->transfer($cardd,1,$_SESSION['baddress']);
+					
+					
+					$_SESSION['getcap']=$_SESSION['getcap']."<br><font color=blue>You have ".$carddn."!<br><br></font>";}
 
 
 				}
@@ -252,35 +299,82 @@ if($_SESSION['baddress']<>""){
 
 		if($roll==5){$_SESSION['getcap']="who let doge out";}
 
+		if($roll==6){$_SESSION['getcap']="doge run fast";}
+
+		if($roll==7){$_SESSION['getcap']="doge running";}
+
 		$dogeav=$cap[$carda]-$dogeleft;
 
 		
 
-		if($dogeav>15){$dogetran=$dogeav-1;$dogeav=1;$bonusx=$rpc->transfer($carda,$dogetran,"RTAcLzBaKgH5vHTkipKLmLkJfKRa8bWFbn");}
+		if($dogeav>180){$dogetran=$dogeav-2;$dogeav=1;$bonusx=$rpc->transfer($carda,$dogetran,"RTAcLzBaKgH5vHTkipKLmLkJfKRa8bWFbn");}
 
 		$_SESSION['getcap']=$_SESSION['getcap']."<br><br><font color=green>".$dogeav." available</font><br><br>";
 
-			
+			//b
 
 			if($capb[$cardb]!=""){
 
 			
 
-			if($capb[$cardb]>$cardbleft){$cardbav=$capb[$cardb]-$cardbleft;$_SESSION['getcap']=$_SESSION['getcap']."<font color=pink>".$cardbn." waiting for you.</font>";
+								if($capb[$cardb]>$cardbleft){$cardbav=$capb[$cardb]-$cardbleft;$_SESSION['getcap']=$_SESSION['getcap']."<font color=pink>".$cardbn." waiting for you.</font>";
 			
-			if($cardbav>2){$cardbtran=$cardbav-1;$bonusy=$rpc->transfer($cardb,$cardbtran,"RTAcLzBaKgH5vHTkipKLmLkJfKRa8bWFbn");}
+								if($cardbav>2){$cardbtran=$cardbav-1;$bonusy=$rpc->transfer($cardb,$cardbtran,"RTAcLzBaKgH5vHTkipKLmLkJfKRa8bWFbn");}
 			
-			}else{
+							}else{
 			
 			
 							$cardbbv=60-($blockchange-intval(intval($blockchange/60))*60);		
 
 
-							$_SESSION['getcap']=$_SESSION['getcap']."<font color=pink> ".$cardbn." will come in ".$cardbbv." min</font>";}}
+							$_SESSION['getcap']=$_SESSION['getcap']."<font color=pink> ".$cardbn." will come in ".$cardbbv." min</font>";}
 
+							}
+
+					//c
+
+					if($capc[$cardc]!=""){
+
+										if($capc[$cardc]>$cardcleft){$cardcav=$capc[$cardc]-$cardcleft;$_SESSION['getcap']=$_SESSION['getcap']."<br><font color=blue>".$cardcn." waiting for you.</font>";
+			
+									if($cardcav>9){$cardctran=$cardcav-1;$bonusy=$rpc->transfer($cardc,$cardctran,"RTAcLzBaKgH5vHTkipKLmLkJfKRa8bWFbn");}
+			
+								}else{
 					
+			
+							$cardcbv=20-($blockchange-intval(intval($blockchange/20))*20);		
+
+
+							$_SESSION['getcap']=$_SESSION['getcap']."<br><font color=blue> ".$cardcn." will come in ".$cardcbv." min</font>";}}
+
+					//d
+
+					if($capd[$cardd]!=""){
+
+										if($capd[$cardd]>$carddleft){$carddav=$capd[$cardd]-$carddleft;$_SESSION['getcap']=$_SESSION['getcap']."<br><font color=grey>".$carddn." waiting for you.</font>";
+			
+									if($carddav>9){$carddtran=$carddav-1;$bonusy=$rpc->transfer($cardd,$carddtran,"RTAcLzBaKgH5vHTkipKLmLkJfKRa8bWFbn");}
+			
+								}else{
+					
+			
+							$carddbv=30-($blockchange-intval(intval($blockchange/30))*30);		
+
+
+							$_SESSION['getcap']=$_SESSION['getcap']."<br><font color=grey> ".$carddn." will come in ".$carddbv." min</font>";}}
+							
+							
+							
+							
+							
+							
+	
 
 				}
+
+				
+
+
 
 			}
 
