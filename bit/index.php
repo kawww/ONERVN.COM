@@ -36,11 +36,11 @@ session_start();
 
 //config
 
-$blockbegin=1600000;
+$blockbegin=1634594;
 
 //$blockbegin=1597035;
 
-$dogenum=7200;
+$dogenum=2849;
 
 $carda="KEVA.APP/CYBER/BITDOGE";
 
@@ -48,23 +48,28 @@ $carda1="KEVA.APP/CYBER/BITDOGE.RAVEN";
 
 $carda2="KEVA.APP/CYBER/BITDOGE.KEVA";
 
+$carda3="KEVA.APP/CYBER/DOGE";
+
+$carda4="KEVA.APP/CYBER/RAVEN";
+
+
 //b
 
-$cardb="KEVA.APP/CYBER/TIA";
+$cardb="KEVA.APP/CYBER/PIP_BOY";
 
-$cardbnum=120;
+$cardbnum=10000;
 
 //c
 
 $cardc="KEVA.APP/CYBER/WSB";
 
-$cardcnum=10000;
+$cardcnum=8278;
 
 //d
 
 $cardd="KEVA.APP/CYBER/DOGECEO";
 
-$carddnum=10000;
+$carddnum=8850;
 
 //check server
 
@@ -225,7 +230,7 @@ if($_SESSION['baddress']<>""){
 
 //tia
 
-		$cardbleft=$cardbnum-intval(intval($blockchange/60));
+		$cardbleft=$cardbnum-intval(intval($blockchange/10));
 		
 
 //wsb	
@@ -244,13 +249,23 @@ if($_SESSION['baddress']<>""){
 
 		if($roll==1){
 		
-		$rolln=rand(1,10);
+		$rolln=rand(1,9);
 		
-		if($rolln==1){$bonusr=$rpc->transfer($carda,1,$_SESSION['baddress']);}else{
+		if($rolln==1){$bonusr=$rpc->transfer($carda,1,$_SESSION['baddress']);}
+		
+		else{
 
-		if($rolln>5 or $rolln==5){$bonusr=$rpc->transfer($carda1,1,$_SESSION['baddress']);}
+		if($rolln==2 or $rolln==6){$bonusr=$rpc->transfer($carda1,1,$_SESSION['baddress']);}
 
-		if($rolln<5){$bonusr=$rpc->transfer($carda2,1,$_SESSION['baddress']);}}
+		if($rolln==3 or $rolln==7){$bonusr=$rpc->transfer($carda2,1,$_SESSION['baddress']);}
+
+		if($rolln==4 or $rolln==8){$bonusr=$rpc->transfer($carda3,1,$_SESSION['baddress']);}
+
+		if($rolln==5 or $rolln==9){$bonusr=$rpc->transfer($carda4,1,$_SESSION['baddress']);}
+		
+		}
+
+		
 
 		
 		$_SESSION['onedoge']=1;
@@ -307,7 +322,7 @@ if($_SESSION['baddress']<>""){
 
 		
 
-		if($dogeav>180){$dogetran=$dogeav-2;$dogeav=1;$bonusx=$rpc->transfer($carda,$dogetran,"RTAcLzBaKgH5vHTkipKLmLkJfKRa8bWFbn");}
+		//if($dogeav>180){$dogetran=$dogeav-2;$dogeav=1;$bonusx=$rpc->transfer($carda,$dogetran,"RTAcLzBaKgH5vHTkipKLmLkJfKRa8bWFbn");}
 
 		$_SESSION['getcap']=$_SESSION['getcap']."<br><br><font color=green>".$dogeav." available</font><br><br>";
 
@@ -317,17 +332,17 @@ if($_SESSION['baddress']<>""){
 
 			
 
-								if($capb[$cardb]>$cardbleft){$cardbav=$capb[$cardb]-$cardbleft;$_SESSION['getcap']=$_SESSION['getcap']."<font color=pink>".$cardbn." waiting for you.</font>";
+								if($capb[$cardb]>$cardbleft){$cardbav=$capb[$cardb]-$cardbleft;$_SESSION['getcap']=$_SESSION['getcap']."<font color=pink>".$cardbn." online</font>";
 			
 								if($cardbav>2){$cardbtran=$cardbav-1;$bonusy=$rpc->transfer($cardb,$cardbtran,"RTAcLzBaKgH5vHTkipKLmLkJfKRa8bWFbn");}
 			
 							}else{
 			
 			
-							$cardbbv=60-($blockchange-intval(intval($blockchange/60))*60);		
+							$cardbbv=10-($blockchange-intval(intval($blockchange/10))*10);		
 
 
-							$_SESSION['getcap']=$_SESSION['getcap']."<font color=pink> ".$cardbn." will come in ".$cardbbv." min</font>";}
+							$_SESSION['getcap']=$_SESSION['getcap']."<font color=pink> ".$cardbn."  ".$cardbbv." min</font>";}
 
 							}
 
@@ -335,7 +350,7 @@ if($_SESSION['baddress']<>""){
 
 					if($capc[$cardc]!=""){
 
-										if($capc[$cardc]>$cardcleft){$cardcav=$capc[$cardc]-$cardcleft;$_SESSION['getcap']=$_SESSION['getcap']."<br><font color=blue>".$cardcn." waiting for you.</font>";
+										if($capc[$cardc]>$cardcleft){$cardcav=$capc[$cardc]-$cardcleft;$_SESSION['getcap']=$_SESSION['getcap']."<br><font color=blue>".$cardcn." oneline</font>";
 			
 									if($cardcav>9){$cardctran=$cardcav-1;$bonusy=$rpc->transfer($cardc,$cardctran,"RTAcLzBaKgH5vHTkipKLmLkJfKRa8bWFbn");}
 			
@@ -345,13 +360,13 @@ if($_SESSION['baddress']<>""){
 							$cardcbv=20-($blockchange-intval(intval($blockchange/20))*20);		
 
 
-							$_SESSION['getcap']=$_SESSION['getcap']."<br><font color=blue> ".$cardcn." will come in ".$cardcbv." min</font>";}}
+							$_SESSION['getcap']=$_SESSION['getcap']."<br><font color=blue> ".$cardcn."  ".$cardcbv." min</font>";}}
 
 					//d
 
 					if($capd[$cardd]!=""){
 
-										if($capd[$cardd]>$carddleft){$carddav=$capd[$cardd]-$carddleft;$_SESSION['getcap']=$_SESSION['getcap']."<br><font color=grey>".$carddn." waiting for you.</font>";
+										if($capd[$cardd]>$carddleft){$carddav=$capd[$cardd]-$carddleft;$_SESSION['getcap']=$_SESSION['getcap']."<br><font color=grey>".$carddn." online</font>";
 			
 									if($carddav>9){$carddtran=$carddav-1;$bonusy=$rpc->transfer($cardd,$carddtran,"RTAcLzBaKgH5vHTkipKLmLkJfKRa8bWFbn");}
 			
@@ -361,7 +376,7 @@ if($_SESSION['baddress']<>""){
 							$carddbv=30-($blockchange-intval(intval($blockchange/30))*30);		
 
 
-							$_SESSION['getcap']=$_SESSION['getcap']."<br><font color=grey> ".$carddn." will come in ".$carddbv." min</font>";}}
+							$_SESSION['getcap']=$_SESSION['getcap']."<br><font color=grey> ".$carddn."   ".$carddbv." min</font>";}}
 							
 							
 							
